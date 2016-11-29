@@ -1,14 +1,33 @@
 <!doctype html>
 <style>
+  body {
+    font-family: sans-serif;
+  }
   tr.hidden {
     display: none;
+  }
+  tr:hover {
+    background-color: hsla(60, 100%, 50%, 0.3);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead {
+    background-color: rgba(0, 0, 0, 0.24);
+  }
+  td {
+    padding: 5px;
+  }
+  td:nth-child(2n) {
+    background-color: rgba(0, 0, 0, 0.14);
   }
 </style>
 <template>
   <div>
     <h1></h1>
     <div>
-      Tags: <input type="text">
+      Filter by tags: <input type="text">
     </div>
     <table>
       <thead>
@@ -20,15 +39,20 @@
     </table>
   </div>
 </template>
+<button>Generate</button>
 <script>
   function filterSources(evt) {
     const rows = evt.target.parentNode.parentNode.querySelectorAll('table tbody tr');
-    const filterTags = evt.target.value.split(',').map(f => f.trim());
+    const filterText = evt.target.value;
+    const filterTags = filterText.split(',').map(f => f.trim());
     rows.forEach(row => {
-      // console.log(row);
       const tags = JSON.parse(row.querySelector('td[data-tags]').dataset.tags);
-      row.classList.toggle('hidden', tags.map(t => filterTags.indexOf(t)).filter(f => f !== -1).length < filterTags.length);
+      row.classList.toggle('hidden', tags.map(t => filterText && filterTags.indexOf(t)).filter(f => f !== -1).length < filterTags.length);
     })
+  }
+  function rowClick(event) {
+    const radio = event.target.parentNode.querySelector('input[type=radio]');
+    radio.checked = true;
   }
   function buildSourcePicker(name, sources) {
     const picker = document.querySelector('template').content.cloneNode(true);
@@ -38,13 +62,16 @@
       sources
         .map(s => `
           <tr>
-            <td><input type="radio" name="${name}"></td>
+            <td><input type="radio" name="${name}" value="${s.uri}"></td>
             <td>${s.name}</td>
-            <td>${s.size}</td>
-            <td data-tags='${JSON.stringify(s.tags)}'>${s.tags}</td>
-          </tr>`)
+            <td>${s.size?`${Math.floor(s.size/1024/1024*100)/100}MB`:''}</td>
+            <td data-tags='${JSON.stringify(s.tags)}'>${s.tags.join(', ')}</td>
+          </tr>
+        `)
         .join('');
-
+    picker.querySelectorAll('tbody tr').forEach(row => {
+      row.addEventListener('click', rowClick);
+    });
     document.body.appendChild(picker);
   }
   fetch('/sources')
@@ -54,5 +81,27 @@
       const audioSources = sources.sources.filter(s => s.tags.indexOf('audio') !== -1);
       buildSourcePicker('Video', videoSources);
       buildSourcePicker('Audio', audioSources);
+      buildSourcePicker('Format', [
+        {
+          name: 'mp4',
+          tags: [],
+          uri: 'mp4'
+        },
+        {
+          name: 'mkv',
+          tags: [],
+          uri: 'mkv'
+        }
+      ]);
     });
+  document.querySelector('button').addEventListener('click', _ => {
+    const selections = Array.from(document.querySelectorAll('input:checked'));
+    if (selections.length !== 3) {
+      alert('Not all choices have been made');
+      return;
+    }
+    
+    const url = '/generate?' + selections.map(s => `${s.name}=${s.value}`).join('&');
+    console.log(url);
+  });
 </script>

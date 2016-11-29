@@ -2,86 +2,86 @@
   {
     "name": "Big Buck Bunny",
     "tags": ["24fps", "480p", "h264", "video"],
-    "url": "http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_surround-fix.avi"
+    "uri": "http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_surround-fix.avi"
   },
   {
     "name": "Big Buck Bunny",
     "tags": ["24fps", "720p", "h264", "video"],
-    "url": "http://distribution.bbb3d.renderfarming.net/video/mp4/big_buck_bunny_720p_surround.avi"
+    "uri": "http://distribution.bbb3d.renderfarming.net/video/mp4/big_buck_bunny_720p_surround.avi"
   },
   {
     "name": "Big Buck Bunny",
     "tags": ["24fps", "1080p", "h264", "video"],
-    "url": "http://distribution.bbb3d.renderfarming.net/video/mp4/big_buck_bunny_1080p_surround.avi"
+    "uri": "http://distribution.bbb3d.renderfarming.net/video/mp4/big_buck_bunny_1080p_surround.avi"
   },
   {
     "name": "Big Buck Bunny",
     "tags": ["30fps", "1080p", "h264", "video"],
-    "url": "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4"
+    "uri": "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4"
   },
   {
     "name": "Big Buck Bunny",
     "tags": ["60fps", "1080p", "h264", "video"],
-    "url": "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4"
+    "uri": "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4"
   },
   {
     "name": "Big Buck Bunny",
     "tags": ["30fps", "2160p", "h264", "video"],
-    "url": "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_30fps_normal.mp4"
+    "uri": "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_30fps_normal.mp4"
   },
   {
     "name": "Big Buck Bunny",
     "tags": ["60fps", "2160p", "h264", "video"],
-    "url": "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_native_60fps_normal.mp4"
+    "uri": "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_native_60fps_normal.mp4"
   },
   {
     "name": "4Ever project",
     "tags": ["30fps", "720p", "h265", "video"], 
-    "url": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_720p30_3M.mp4"
+    "uri": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_720p30_3M.mp4"
   },
   {
     "name": "4Ever project",
     "tags": ["60fps", "720p", "h265", "video"], 
-    "url": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_720p60_4M.mp4"
+    "uri": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_720p60_4M.mp4"
   },
   {
     "name": "4Ever project",
     "tags": ["30fps", "1080p", "h265", "video"], 
-    "url": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_1080p30_4M.mp4"
+    "uri": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_1080p30_4M.mp4"
   },
   {
     "name": "4Ever project",
     "tags": ["60fps", "1080p", "h265", "video"], 
-    "url": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_1080p60_6M.mp4"
+    "uri": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_1080p60_6M.mp4"
   },
   {
     "name": "4Ever project",
     "tags": ["60fps", "1080p", "h265", "10bit", "video"], 
-    "url": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_1080p60_Main10_8M.mp4"
+    "uri": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_1080p60_Main10_8M.mp4"
   },
   {
     "name": "4Ever project",
     "tags": ["60fps", "2160p", "h265", "video"], 
-    "url": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_2160p60_12M.mp4"
+    "uri": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_2160p60_12M.mp4"
   },
   {
     "name": "4Ever project",
     "tags": ["60fps", "2160p", "h265", "10bit", "video"], 
-    "url": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_2160p60_Main10_20M.mp4"
+    "uri": "http://download.tsi.telecom-paristech.fr/gpac/dataset/dash/uhd/mux_sources/hevcds_2160p60_Main10_20M.mp4"
   },
   {
     "name": "Synthesized 5.1",
     "tags": ["48kHz", "5.1", "DTS", "audio"],
-    "file": "audio/dca_51.mp4"
+    "uri": "audio/dca_51.mp4"
   },
   {
     "name": "Synthesized 5.1",
     "tags": ["48kHz", "5.1", "AC3", "audio"],
-    "file": "audio/ac3_51.mp4"
+    "uri": "audio/ac3_51.mp4"
   },
   {
     "name": "Synthesized 5.1",
     "tags": ["48kHz", "5.1", "AAC", "audio"],
-    "file": "audio/libfdk_aac_51.mp4"
+    "uri": "audio/libfdk_aac_51.mp4"
   }
 ]

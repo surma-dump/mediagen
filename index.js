@@ -9,6 +9,10 @@ app.get('/sources', (req, res) => {
   sources.then(s => res.send(s));
 });
 
+app.get('/generate', (req, res) => {
+
+});
+
 app.use(express.static('static'));
 
 require('http').createServer(app).listen(8080);
@@ -23,18 +27,17 @@ Set.prototype.delete = function(item) {
 function augmentSourcesSet(sources) {
   return Promise.all(
     sources.map(s => {
-      if (s.url)
-        return fetch(s.url, {method: 'HEAD'})
+      if (s.uri.startsWith('http://') || s.uri.startsWith('https://'))
+        return fetch(s.uri, {method: 'HEAD'})
           .then(response => {
             s.size = response.headers.get('Content-Length');
+            s.etag = response.headers.get('ETag');
           });
-      else if (s.file)
-        return fs.stat(s.file)
+      else 
+        return fs.stat(s.uri)
           .then(stats => {
             s.size = stats.size;
           });
-      else
-        throw new Error(`No usable source for ${s.name} with ${s.tags}`);
     })
   )
   .then(_ => ({

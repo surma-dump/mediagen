@@ -1,2 +1,58 @@
 <!doctype html>
-<h1>Ohai</h1>
+<style>
+  tr.hidden {
+    display: none;
+  }
+</style>
+<template>
+  <div>
+    <h1></h1>
+    <div>
+      Tags: <input type="text">
+    </div>
+    <table>
+      <thead>
+        <th></th>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Tags</th>
+      </thead>
+    </table>
+  </div>
+</template>
+<script>
+  function filterSources(evt) {
+    const rows = evt.target.parentNode.parentNode.querySelectorAll('table tbody tr');
+    const filterTags = evt.target.value.split(',').map(f => f.trim());
+    rows.forEach(row => {
+      // console.log(row);
+      const tags = JSON.parse(row.querySelector('td[data-tags]').dataset.tags);
+      row.classList.toggle('hidden', tags.map(t => filterTags.indexOf(t)).filter(f => f !== -1).length < filterTags.length);
+    })
+  }
+  function buildSourcePicker(name, sources) {
+    const picker = document.querySelector('template').content.cloneNode(true);
+    picker.querySelector('h1').textContent = name;
+    picker.querySelector('input').addEventListener('input', filterSources);
+    picker.querySelector('table').innerHTML += 
+      sources
+        .map(s => `
+          <tr>
+            <td><input type="radio" name="${name}"></td>
+            <td>${s.name}</td>
+            <td>${s.size}</td>
+            <td data-tags='${JSON.stringify(s.tags)}'>${s.tags}</td>
+          </tr>`)
+        .join('');
+
+    document.body.appendChild(picker);
+  }
+  fetch('/sources')
+    .then(resp => resp.json())
+    .then(sources => {
+      const videoSources = sources.sources.filter(s => s.tags.indexOf('video') !== -1);
+      const audioSources = sources.sources.filter(s => s.tags.indexOf('audio') !== -1);
+      buildSourcePicker('Video', videoSources);
+      buildSourcePicker('Audio', audioSources);
+    });
+</script>

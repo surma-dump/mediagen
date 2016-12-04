@@ -72,16 +72,16 @@
   {
     "name": "Synthesized 5.1",
     "tags": ["48kHz", "5.1", "DTS", "audio"],
-    "uri": "audio/dca_51.mp4"
+    "uri": "dca_51.mp4"
   },
   {
     "name": "Synthesized 5.1",
     "tags": ["48kHz", "5.1", "AC3", "audio"],
-    "uri": "audio/ac3_51.mp4"
+    "uri": "ac3_51.mp4"
   },
   {
     "name": "Synthesized 5.1",
     "tags": ["48kHz", "5.1", "AAC", "audio"],
-    "uri": "audio/libfdk_aac_51.mp4"
+    "uri": "libfdk_aac_51.mp4"
   }
 ]

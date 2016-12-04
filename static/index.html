@@ -101,7 +101,9 @@
       return;
     }
     
-    const url = '/generate?' + selections.map(s => `${s.name}=${s.value}`).join('&');
-    console.log(url);
+    const searchParams = new URLSearchParams();
+    selections.forEach(s => searchParams.set(s.name, s.value));
+    const url = '/generate?' + searchParams.toString();
+    fetch(url);
   });
 </script>

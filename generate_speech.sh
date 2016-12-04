@@ -1,3 +1,5 @@
+cd data;
+
 LINE="Center channel. Left channel. Right channel. Surround left channel. Surround right channel. Rear left channel. Rear right channel. Buffer"
 say --data-format=I32@48000 -o snippets.wav $LINE
 

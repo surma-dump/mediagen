@@ -45,9 +45,10 @@ app.get('/generate', (req, res) => {
           .then(_ => console.log('Audio download done.'));
       }),
   ])
-  .then(_ => 
-    exec(`ffmpeg -i "${videoPath.flatPath}" -i "${audioPath.flatPath}" -c copy -map 0:v -map 1:a output.${req.query['Format']}`)
-  )
+  .then(_ => {
+    console.log('Encoding...');
+    return exec(`ffmpeg -y -i "${videoPath.flatPath}" -i "${audioPath.flatPath}" -c copy -map 0:v -map 1:a output.${req.query['Format']}`);
+  })
   .then((stdout, stderr) => console.log(`Succesfully wrote "output.${req.query['Format']}"`))
   .catch(err => console.log(`Encoding error: ${err.toString()}`));
   res.send();
